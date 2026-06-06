@@ -1,0 +1,77 @@
+<!-- What happens when you run Javascript Code ? -->
+
+<!-- first global execution context is created -->
+<!-- execution context is like a big box and it having 2 components :- Memory and Code components -->
+
+<!-- execution context created in 2 phases -->
+
+<!-- first phase is memory creation phase :- in this phase, javascript will allocate memory to all variables and function in memory component.
+                                          :-   n: undefined
+                                          :-   square:{...full code...}
+                                          :-   square2:undefined
+                                          :-   square4:undefined
+-->
+<!-- second phase is code execution phase :- in this phase, javascript once again run through the code line by line and executed the code now in code component.
+                                          :-   n:2 (value 2 allocated to n in phase 2)
+                                          :-   in phase 2 there is nothing to executed in the function so it go ahead to next lines
+                                          :-   square2: function square in invoked, and a new execution context is created in code components. Now again same two components is created in new execution context and it happens in similar way with 2 phases involved... 
+                                                :- in first phase, javascript will allocate memory to all the variables and functions in memory component of the new execution context present inside the old execution context.
+                                                num:undefined
+                                                ans:undefined
+                                                :- in second phase, execution of each line started present in the function.
+                                                num (parameter) : 2 (n=2 which is an argument)
+                                                ans:4 (num*num = 2*2 = 4)
+                                                return keyword states that return the control of the program to where the function is invoked. so return the value of ans which is 4 to square2.
+                                                square2:4
+                                                and function execution context is deleted 
+                                          :-    square4: function square is invoked again with the value 4 as an argument and a new execution context is created in code components. Now again same two components is created in new execution context and it happens in similar way with 2 phases involved...
+                                                :- in first phase, javascript will allocate memory to all the variables and functions in memory component of the new execution context present inside the old execution context.
+                                                num:undefined
+                                                ans:undefined 
+                                                :- in second phase, execution of each line started present in the function.
+                                                num (parameter) : 4 (argument)
+                                                ans:16 (num*num = 4*4 = 16)
+                                                return keyword states that return the control of the program to where the function is invoked. so return the value of ans which is 16 to square4.
+                                                square4:16
+                                                and function execution context is deleted
+ -->
+
+<!-- Now all program is done and then the global execution context also deleted. -->
+
+<!-- when we invoke a function inside another function, then then execution context is created for the parent function and then in the code component of the parent function another function execution context is created for the child function -->
+
+
+<!-- Call-Stack :- It is like a stack used to manage execution contexts, in botton of it we have global execution context. 
+                :- when a function is invoked, new function execution context is created and put above the last execution context in the call stack.
+                :- after return the present execution context is popped out from the callstack.
+                :- after the program completeion, global execution context also popped out from the callstack.
+
+                :- call stack also known as execution context stack, program stack, control stack, runtime stack, machine stack
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var n =2;
+
+    function square (num) { // functions are the heart of js, they behave differently in javascript then any other languages.
+      var ans = num * num;
+      return ans;
+    }
+
+    var square2 = square(n);
+    var square4 = square (4);
+
+  </script>
+</body>
+</html>
+
+<!-- doubt :- what is the data type of num parameter -->

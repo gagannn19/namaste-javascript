@@ -1,0 +1,8 @@
+many programming languages like javascript, python, c++ shares similar concepts like :-
+    --> variables
+    --> conditions
+    --> loops
+    --> functions, etc.
+
+BUT
+    we are going to study those concepts that make javascript different.
