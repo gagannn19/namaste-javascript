@@ -28,7 +28,7 @@ function counter(){
     console.log(count);
   }
 
-  return increamentCounter();
+  // return increamentCounter();
 }
 
 // console.log(count); // give us error
