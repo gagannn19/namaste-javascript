@@ -19,7 +19,7 @@ console.log("start");
 
 // if the timer here is. 0, the function have to go through the queue.
 setTimeout(function cb2() {
-  console.log("calbback 2");
+  console.log("callback 2");
 }, 5000);
 
 console.log("end"); 
